@@ -1,45 +1,90 @@
 ---
 title: "Your A4 Report Title (TODO: Revise title)"
-author: "Your Name"
+author: "Jeffrey Zeng"
 date: '2022-11-01'
 output: html_document
 ---
 
-```{r echo=FALSE, eval=TRUE, message=FALSE}
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
 source("../source/a4-helpers.R")
 source("../source/analysis.R")
+options(scipen=999)
 ```
 
 ## Abstract 
-[TODO: Include a short abstract (about 50 words)]
-
-# Test (TODO: Remove before submission!!)
-```{r echo=FALSE}
-q1_string <- test_query1()
-num <- 5
-```
-As you know, this is a markdown report. The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is **useful!**
-
-* Here's a test of a dynamic variable. Say **"`r q1_string`!!!** 
-* Here's another test. A vector
-of numbers: `r test_query2(num)`.
-
-Recall that _{r echo=TRUE}_ can be used to display the code, 
-which is very useful when developing and debugging a report. Here's an example: 
-
-```{r echo=TRUE}
-num <- 5
-sum <- sum(test_query2(num))
-print(sum)
-```
+The point of this report is to analyze incarceration rates and prison populations in order to look for possible inequalities within the prison system. We will do this by comparing various factors and variables that might give us insight and a clearer picture of just why there might be unequal amounts of incarcerations for certain groups.
 
 ## Introduction 
-[TODO]
+In the US there is suppose to be a sense of freedom and equality for everyone, but the fact is that there just isn't. When we look at the rate of incarceration in the US there is a clear disparity in the people that are incarcerated. 35% of men incarcerated are black and over 80% of all arrests of any type are on people suffering from poverty. So where does the issue lie, well we can point out fingers at the people arrested, or the police forces, or even the city but the reality is that this issue runs very deep and to get a sense of why we need to look further than one group of people. To understand why these statistics are true we need to take a deeper look at where these arrests are happening and why they are happening as well as different factors that might be influencing these actions, only then will we get a clear picture of why these incarcerations are occurring.
 
-## Data Summary 
-[TODO]
+```{r echo=FALSE}
+aapi_data <- A_inc_data()
+black_data <- B_inc_data()
+lat_data <- L_inc_data()
+Nat_data <- N_inc_data()
+White_data <- W_inc_data()
+```
 
-[TODO ... other sections ... See Canvas for details]
+## Data Summary
+### Variable 1
+The first variable we that we would want to look at is the average amount of men of each racial group from all counties. It is important to first understand the just how the populations of each racial group are broken down. This will allow us to compare these values to actual incarcerated prison populations and see exactly if they are proportional, and if they aren't we can address reasons why.
 
-_All the very best with your work!_
+The average population of AAPI men between all counties is about `r aapi_data` people.
+
+The average population of Black men between all counties is about `r black_data` people.
+
+The average population of Latin x men between all counties is about `r lat_data` people.
+
+The average population of Native men between all counties is about `r Nat_data` people.
+
+The average population of White men between all counties is about `r White_data` people.
+
+```{r echo=FALSE}
+aapi_pri <- A_jail_data()
+black_pri <- B_jail_data()
+lat_pri <- L_jail_data()
+Nat_pri <- N_jail_data()
+White_pri <- W_jail_data()
+```
+
+### Variable 2
+The next variable that we would want to analyze is average prison populations of each group between all counties. This will allow us to look at just how many of each group of is actual placed in prison and by comparing this number to the average total population of this group we can then see if there is a disparity between the proportions. If there is a disparity then we can further look into why there is for this specific group.
+
+The average population of AAPI men between all counties that are in prison is about `r aapi_pri` people.
+
+The average population of Black men between all counties that are in prison is about `r black_pri` people.
+
+The average population of Latin x men between all counties that are in prison is about `r lat_pri` people.
+
+The average population of Native men between all counties that are in prison is about `r Nat_pri` people.
+
+The average population of white men between all counties that are in prison is about `r White_pri` people.
+
+## Growth of the US Prison Population
+```{r echo=FALSE, fig.cap = "Figure 1. This figure shows the increase in jail population from the years 1970-2018."}
+plot_jail_pop_for_us()
+```
+
+### Summary Paragraph
+**Between what years saw the greatest increase in jail populations relative to prior years? And about what year did this massive increase begin?**
+
+This increase is is seen towards the middle of the graph right around the 1980s. We can see that prior to this time the jail populations remained relatively stagnant for close to 10 years, until around 1980 when the populations almost doubled over the course of a decade. This trend continued with each decade increasing by over 200000 each year causing some extreme growth over the span of about 30 years.
+
+### Growth of the US Prison Population by state
+```{r echo=FALSE, warning=FALSE, fig.cap = "Figure 2: This figure shows the increase in prison populations from 1970-2018 but it has been narrowed down to only a few states."}
+plot_jail_pop_by_states(states)
+```
+
+### Summary Paragraph
+**Are the patterns that were present on the graph about the whole country still present on this graph?**
+
+If we look at the years there is that the increases begin we can see that there is extreme growth around the 1980's that continues to present day. This is a similar pattern to what we saw for the total US population at a smaller scale. Another interesting thing to note is that although the state totals are quite different this pattern of large growth around 1980 is seen in all data point shown on the graph. 
+
+### Environments and Jail Population Rates
+```{r echo = FALSE, fig.cap = "Figure 3: This figure compares jail rates and type of city environment."}
+plot_of_growth()
+```
+
+**Do urban environments, with generally higher populations send more people to jail?**
+If we look at the graph it seems overwhelmingly that the rate that which populations are sent to jail is heavily skewed towards the side of rural environments. This is surprising because despite the higher populations of urban environments it actually has the lowest rate of jail populations with the other environments both being fairly low but higher than urban.     
 
