@@ -129,7 +129,7 @@ plot_jail_pop_by_states <- function(states) {
 ## Section 5  ---- 
 #----------------------------------------------------------------------------#
 # <variable comparison that reveals potential patterns of inequality>
-# Your functions might go here ... <todo:  update comment>
+# Your functions might go here ... <Comparing increasing rates of population and prison over the years>
 # See Canvas
 #----------------------------------------------------------------------------#
 growth_most_pop <- function() {
@@ -158,6 +158,15 @@ plot_of_growth <- function() {
 # See Canvas
 #----------------------------------------------------------------------------#
 
-## Load data frame ---- 
+# W_prop <- inc_data %>%
+#  mutate(w_proportion = W_jail_data()/W_inc_data()) %>%
+#  group_by(state) %>%
+
+#inquality_frame <- function() {
+# df_4 <- inc_data %>%
+#  return(df_4)
+#}
+
+###Didn't finish :(
 
   
