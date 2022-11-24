@@ -1,5 +1,5 @@
 ---
-title: "Your A4 Report Title (TODO: Revise title)"
+title: "Analyzing Inequalities in the Justice System"
 author: "Jeffrey Zeng"
 date: '2022-11-01'
 output: html_document
